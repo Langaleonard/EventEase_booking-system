@@ -1,8 +1,49 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "EventEase Booking System";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center mt-5">
+
+    <h1 class="display-4 fw-bold text-primary">EventEase Venue Booking System</h1>
+
+    <p class="lead mt-3">
+        Manage venues, events, and bookings efficiently using the EventEase platform.
+    </p>
+
+    <hr class="my-4"/>
+
+    <div class="row mt-5">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h4>Venues</h4>
+                <p>Browse and manage available venues including capacity, location, and details.</p>
+                <a asp-controller="Venues" asp-action="Index" class="btn btn-primary">View Venues</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h4>Events</h4>
+                <p>Create and manage events scheduled across multiple venues.</p>
+                <a asp-controller="Events" asp-action="Index" class="btn btn-success">View Events</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h4>Bookings</h4>
+                <p>Track venue bookings and manage scheduling efficiently.</p>
+                <a asp-controller="Bookings" asp-action="Index" class="btn btn-warning">View Bookings</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5">
+        <p class="text-muted">
+            EventEase helps booking specialists manage venues and event scheduling with ease.
+        </p>
+    </div>
+
 </div>
