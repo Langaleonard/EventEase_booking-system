@@ -25,7 +25,7 @@ namespace EventEase_booking_system.Controllers
             return View(await _context.Venues.ToListAsync());
         }
 
-        // GET: Venues/Details/5
+        // GET: Venues/Details/
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,9 +49,7 @@ namespace EventEase_booking_system.Controllers
             return View();
         }
 
-        // POST: Venues/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("VenueId,VenueName,Location,Capacity,ImageUrl")] Venue venue)
@@ -81,9 +79,7 @@ namespace EventEase_booking_system.Controllers
             return View(venue);
         }
 
-        // POST: Venues/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("VenueId,VenueName,Location,Capacity,ImageUrl")] Venue venue)
