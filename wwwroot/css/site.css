@@ -1,31 +1,211 @@
-html {
-  font-size: 14px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+:root {
+    --brand-blue: #1f4f8c;
+    --brand-red: #c51f2d;
+    --brand-gray: #f4f6f8;
+    --text-dark: #323232;
+    --line: #d9e2ef;
+    --white: #ffffff;
+    --black: #000000;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    font-size: 14px;
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    background-color: var(--brand-gray);
+    color: var(--text-dark);
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Navbar */
+.navbar {
+    background: var(--brand-blue) !important;
+    border-bottom: 3px solid var(--brand-red);
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.navbar-brand,
+.navbar .nav-link {
+    color: var(--white) !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.navbar .nav-link:hover {
+    color: #dbe7f5 !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    color: var(--text-dark);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 6px solid var(--brand-red);
+    padding-left: 12px;
+}
+
+/* Paragraphs */
+p {
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--text-dark);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0 !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.btn-primary {
+    background: var(--brand-blue);
+    border-color: var(--brand-blue);
+}
+
+.btn-primary:hover {
+    background: #173c69;
+    border-color: #173c69;
+}
+
+.btn-success {
+    background: var(--brand-red);
+    border-color: var(--brand-red);
+}
+
+.btn-success:hover {
+    background: #a91925;
+    border-color: #a91925;
+}
+
+.btn-danger {
+    background: var(--black);
+    border-color: var(--black);
+}
+
+.btn-danger:hover {
+    background: #222;
+    border-color: #222;
+}
+
+.btn-warning {
+    background: var(--white);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue);
+}
+
+.btn-warning:hover {
+    background: var(--brand-blue);
+    color: var(--white);
+}
+
+/* Tables */
+.table {
+    background: var(--white);
+    border: 1px solid var(--line);
+}
+
+.table thead {
+    background: var(--brand-blue);
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+    border-color: var(--line);
+}
+
+.table-hover tbody tr:hover {
+    background: #eef3f9;
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    border-radius: 0 !important;
+    border: 1px solid var(--line);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand-blue);
+    box-shadow: none;
+}
+
+/* Cards / content blocks */
+.card {
+    border-radius: 0;
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 18px rgba(31, 79, 140, 0.06);
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--brand-blue);
+}
+
+/* Images */
+img {
+    border: 1px solid var(--line);
+    object-fit: cover;
+}
+
+/* Home hero section */
+.home-hero {
+    background: linear-gradient(90deg, var(--brand-blue), #27425f);
+    color: var(--white);
+    padding: 50px 30px;
+    margin-bottom: 30px;
+    border-left: 6px solid var(--brand-red);
+}
+
+.home-hero h1,
+.home-hero h2,
+.home-hero p {
+    color: var(--white);
+}
+
+.home-hero h1 {
+    font-size: 2.6rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.home-hero p {
+    max-width: 700px;
+}
+
+/* Footer */
+.footer {
+    background: var(--brand-blue);
+    color: var(--white);
+    border-top: 3px solid var(--brand-red);
+}
+
+.footer a {
+    color: var(--white);
+}
+
+/* Utility */
+.section-rule {
+    height: 2px;
+    width: 100%;
+    background: var(--line);
+    margin: 14px 0 26px;
 }
