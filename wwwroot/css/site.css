@@ -28,7 +28,7 @@ body {
 
 .navbar-brand,
 .navbar .nav-link {
-    color: var(--white) !important;
+    color: var(--black) !important;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .04em;
