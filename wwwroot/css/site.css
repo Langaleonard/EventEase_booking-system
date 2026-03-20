@@ -80,22 +80,22 @@ p {
     border-color: #173c69;
 }
 
-.btn-success {
+.btn-red {
     background: var(--brand-red);
     border-color: var(--brand-red);
 }
 
-.btn-success:hover {
+.btn-red:hover {
     background: #a91925;
     border-color: #a91925;
 }
 
-.btn-danger {
+.btn-gray {
     background: var(--black);
     border-color: var(--black);
 }
 
-.btn-danger:hover {
+.btn-gray:hover {
     background: #222;
     border-color: #222;
 }
