@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventEase_booking-system")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ed978a6d957de95b8c58e4b41a03468b6c43275")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5ebc0dcc75f2629aed2d326a807a194cb44b9ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventEase_booking-system")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventEase_booking-system")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -148,7 +148,6 @@
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/scopedcss/bundle/EventEase_booking-system.styles.css
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/scopedcss/projectbundle/EventEase_booking-system.bundle.scp.css
-/Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/compressed/yxygi4np9w-{0}-b9sayid5wm-b9sayid5wm.gz
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/compressed/9tvpldby9f-{0}-61n19gt1b8-61n19gt1b8.gz
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/compressed/lujo30fq55-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/compressed/89j2lxhdud-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -337,3 +336,4 @@
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.Scripting.resources.dll
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.Scripting.resources.dll
 /Users/leonard/Documents/RoseHub/EventEase_booking-system/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.Scripting.resources.dll
+/Users/leonard/Documents/RoseHub/EventEase_booking-system/obj/Debug/net10.0/compressed/yxygi4np9w-{0}-8aqggje5i5-8aqggje5i5.gz
