@@ -22,7 +22,7 @@ body {
 
 /* Navbar */
 .navbar {
-    background: var(--brand-gray) !important;
+    background: var(--white) !important;
     border-bottom: 3px solid var(--brand-red);
 }
 
