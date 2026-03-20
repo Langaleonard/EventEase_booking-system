@@ -90,13 +90,13 @@ p {
     border-color: #a91925;
 }
 
-.btn-gray {
+.btn- {
     background: var(--black);
     border-color: var(--black);
 }
 
 .btn-gray:hover {
-    background: #222;
+    background: #5e5c5d;
     border-color: #222;
 }
 
