@@ -83,6 +83,7 @@ p {
 .btn-red {
     background: var(--brand-red);
     border-color: var(--brand-red);
+    color:#ffffff;
 }
 
 .btn-red:hover {
@@ -90,7 +91,7 @@ p {
     border-color: #a91925;
 }
 
-.btn- {
+.btn-gray{
     background: var(--black);
     border-color: var(--black);
 }
