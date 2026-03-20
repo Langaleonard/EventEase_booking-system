@@ -89,16 +89,19 @@ p {
 .btn-red:hover {
     background: #a91925;
     border-color: #a91925;
+     color:#ffffff;
 }
 
 .btn-gray{
     background: var(--black);
     border-color: var(--black);
+    color:#ffffff;
 }
 
 .btn-gray:hover {
     background: #5e5c5d;
     border-color: #222;
+     color:#ffffff;
 }
 
 .btn-warning {
