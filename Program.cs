@@ -1,5 +1,6 @@
 using EventEase_booking_system.Data;
 using Microsoft.EntityFrameworkCore;
+using EventEase_booking_system.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"),
         sqlOptions => sqlOptions.EnableRetryOnFailure()
     ));
+    
+builder.Services.AddSingleton<BlobService>();
 
 builder.Services.AddControllersWithViews();
 

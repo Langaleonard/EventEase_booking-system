@@ -14,6 +14,8 @@ namespace EventEase_booking_system.Models
 
         public string Description { get; set; } = string.Empty;
 
+        public string? ImageUrl { get; set; }
+
         public int? VenueId { get; set; }
         public Venue? Venue { get; set; }
     }
