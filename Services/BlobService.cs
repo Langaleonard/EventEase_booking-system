@@ -9,8 +9,8 @@ namespace EventEase_booking_system.Services
 
         public BlobService(IConfiguration configuration)
         {
-            var connectionString = configuration["BlobConnection"];
-var containerName = configuration["BlobContainer"];
+            var connectionString = configuration["AzureBlobStorage:ConnectionString"];
+var containerName = configuration["AzureBlobStorage:ContainerName"];
 
             _containerClient = new BlobContainerClient(connectionString, containerName);
             _containerClient.CreateIfNotExists(PublicAccessType.Blob);

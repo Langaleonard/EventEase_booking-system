@@ -153,6 +153,15 @@ namespace EventEase_booking_system.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            bool hasBookings = await _context.Bookings.AnyAsync(b => b.VenueId == id);
+            bool hasEvents = await _context.Events.AnyAsync(e => e.VenueId == id);
+
+            if (hasBookings || hasEvents)
+            {
+                TempData["ErrorMessage"] = "This venue cannot be deleted because it is linked to existing events or bookings.";
+                return RedirectToAction(nameof(Index));
+            }
+
             var venue = await _context.Venues.FindAsync(id);
 
             if (venue != null)

@@ -75,6 +75,7 @@ namespace EventEase_booking_system.Controllers
             return View(eventItem);
         }
 
+        // GET: Events/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -93,7 +94,7 @@ namespace EventEase_booking_system.Controllers
             return View(eventItem);
         }
 
-  
+        // POST: Events/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
@@ -155,11 +156,19 @@ namespace EventEase_booking_system.Controllers
             return View(eventItem);
         }
 
-
+        // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            bool hasBookings = await _context.Bookings.AnyAsync(b => b.EventId == id);
+
+            if (hasBookings)
+            {
+                TempData["ErrorMessage"] = "This event cannot be deleted because it is linked to an existing booking.";
+                return RedirectToAction(nameof(Index));
+            }
+
             var eventItem = await _context.Events.FindAsync(id);
 
             if (eventItem != null)
