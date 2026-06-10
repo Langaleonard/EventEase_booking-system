@@ -16,22 +16,63 @@ namespace EventEase_booking_system.Controllers
         }
 
         // GET: Bookings
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(
+            string searchString,
+            int? eventTypeId,
+            DateTime? startDate,
+            DateTime? endDate,
+            bool? isAvailable)
         {
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["CurrentEventType"] = eventTypeId;
+            ViewData["CurrentStartDate"] = startDate?.ToString("yyyy-MM-dd");
+            ViewData["CurrentEndDate"] = endDate?.ToString("yyyy-MM-dd");
+            ViewData["CurrentAvailability"] = isAvailable;
+
+            ViewData["EventTypeId"] = new SelectList(_context.EventTypes, "EventTypeId", "Name", eventTypeId);
+
             var bookings = _context.Bookings
                 .Include(b => b.Event)
+                    .ThenInclude(e => e.EventType)
                 .Include(b => b.Venue)
                 .AsQueryable();
 
-           if (!string.IsNullOrEmpty(searchString))
-{
-    bookings = bookings.Where(b =>
-    b.BookingId.ToString().Contains(searchString) ||
-    (b.Event != null && b.Event.EventName.Contains(searchString)) ||
-    (b.Venue != null && b.Venue.VenueName.Contains(searchString)) ||
-    (b.Venue != null && b.Venue.Location.Contains(searchString)));
-        
-}
+            if (!string.IsNullOrWhiteSpace(searchString))
+            {
+                searchString = searchString.Trim();
+
+                bookings = bookings.Where(b =>
+                    b.BookingId.ToString().Contains(searchString) ||
+                    (b.Event != null && b.Event.EventName.Contains(searchString)) ||
+                    (b.Venue != null && b.Venue.VenueName.Contains(searchString)) ||
+                    (b.Venue != null && b.Venue.Location.Contains(searchString)));
+            }
+
+            if (eventTypeId.HasValue)
+            {
+                bookings = bookings.Where(b =>
+                    b.Event != null &&
+                    b.Event.EventTypeId == eventTypeId.Value);
+            }
+
+            if (startDate.HasValue)
+            {
+                bookings = bookings.Where(b =>
+                    b.BookingDate.Date >= startDate.Value.Date);
+            }
+
+            if (endDate.HasValue)
+            {
+                bookings = bookings.Where(b =>
+                    b.BookingDate.Date <= endDate.Value.Date);
+            }
+
+            if (isAvailable.HasValue)
+            {
+                bookings = bookings.Where(b =>
+                    b.Venue != null &&
+                    b.Venue.IsAvailable == isAvailable.Value);
+            }
 
             return View(await bookings.ToListAsync());
         }
@@ -46,6 +87,7 @@ namespace EventEase_booking_system.Controllers
 
             var booking = await _context.Bookings
                 .Include(b => b.Event)
+                    .ThenInclude(e => e.EventType)
                 .Include(b => b.Venue)
                 .FirstOrDefaultAsync(m => m.BookingId == id);
 
@@ -171,6 +213,7 @@ namespace EventEase_booking_system.Controllers
 
             var booking = await _context.Bookings
                 .Include(b => b.Event)
+                    .ThenInclude(e => e.EventType)
                 .Include(b => b.Venue)
                 .FirstOrDefaultAsync(m => m.BookingId == id);
 

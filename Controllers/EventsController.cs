@@ -21,7 +21,10 @@ namespace EventEase_booking_system.Controllers
         // GET: Events
         public async Task<IActionResult> Index()
         {
-            var events = _context.Events.Include(e => e.Venue);
+            var events = _context.Events
+                .Include(e => e.Venue)
+                .Include(e => e.EventType);
+
             return View(await events.ToListAsync());
         }
 
@@ -35,6 +38,7 @@ namespace EventEase_booking_system.Controllers
 
             var eventItem = await _context.Events
                 .Include(e => e.Venue)
+                .Include(e => e.EventType)
                 .FirstOrDefaultAsync(m => m.EventId == id);
 
             if (eventItem == null)
@@ -49,6 +53,7 @@ namespace EventEase_booking_system.Controllers
         public IActionResult Create()
         {
             ViewData["VenueId"] = new SelectList(_context.Venues, "VenueId", "VenueName");
+            ViewData["EventTypeId"] = new SelectList(_context.EventTypes, "EventTypeId", "Name");
             return View();
         }
 
@@ -56,7 +61,7 @@ namespace EventEase_booking_system.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("EventId,EventName,EventDate,Description,VenueId,ImageUrl")] Event eventItem,
+            [Bind("EventId,EventName,EventDate,Description,VenueId,ImageUrl,EventTypeId")] Event eventItem,
             IFormFile? imageFile)
         {
             if (imageFile != null && imageFile.Length > 0)
@@ -72,6 +77,8 @@ namespace EventEase_booking_system.Controllers
             }
 
             ViewData["VenueId"] = new SelectList(_context.Venues, "VenueId", "VenueName", eventItem.VenueId);
+            ViewData["EventTypeId"] = new SelectList(_context.EventTypes, "EventTypeId", "Name", eventItem.EventTypeId);
+
             return View(eventItem);
         }
 
@@ -91,6 +98,8 @@ namespace EventEase_booking_system.Controllers
             }
 
             ViewData["VenueId"] = new SelectList(_context.Venues, "VenueId", "VenueName", eventItem.VenueId);
+            ViewData["EventTypeId"] = new SelectList(_context.EventTypes, "EventTypeId", "Name", eventItem.EventTypeId);
+
             return View(eventItem);
         }
 
@@ -99,7 +108,7 @@ namespace EventEase_booking_system.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
             int id,
-            [Bind("EventId,EventName,EventDate,Description,VenueId,ImageUrl")] Event eventItem,
+            [Bind("EventId,EventName,EventDate,Description,VenueId,ImageUrl,EventTypeId")] Event eventItem,
             IFormFile? imageFile)
         {
             if (id != eventItem.EventId)
@@ -133,6 +142,8 @@ namespace EventEase_booking_system.Controllers
             }
 
             ViewData["VenueId"] = new SelectList(_context.Venues, "VenueId", "VenueName", eventItem.VenueId);
+            ViewData["EventTypeId"] = new SelectList(_context.EventTypes, "EventTypeId", "Name", eventItem.EventTypeId);
+
             return View(eventItem);
         }
 
@@ -146,6 +157,7 @@ namespace EventEase_booking_system.Controllers
 
             var eventItem = await _context.Events
                 .Include(e => e.Venue)
+                .Include(e => e.EventType)
                 .FirstOrDefaultAsync(m => m.EventId == id);
 
             if (eventItem == null)
